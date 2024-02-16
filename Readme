@@ -1,0 +1,26 @@
+install --save pug
+install --save pug-cli
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>erreur 404</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/form">Formulaire</a></li>
+    </ul>
+  </nav>
+</header>
+<h1>Not found : 404</h1>
+</body>
+</html>
