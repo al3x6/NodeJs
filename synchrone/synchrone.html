@@ -1,0 +1,67 @@
+<!-- Affichage XML-->
+
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Essai XML</title>
+
+    <!-- Style css -->
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+<h1>Essai XML</h1>
+
+<table>
+    <script type="text/javascript">
+        // Utilisation de let ou const pour déclarer les variables
+        const xmlhttp = new XMLHttpRequest();
+
+        // Récupère le fichier livres.xml
+        xmlhttp.open("GET", "livres.xml", false);
+        xmlhttp.send();
+
+        // Utilisation de let pour déclarer la variable xmlDoc
+        let xmlDoc = xmlhttp.responseXML;
+
+        // Vérifier si le chargement du XML s'est bien déroulé
+        if (xmlDoc) {
+            document.write("<p>Liste des noeuds rattachés à la racine : </p>");
+            const listeLivres = xmlDoc.getElementsByTagName("livre");
+
+            //let
+
+            for (let i = 0; i < listeLivres.length; i++) {
+                document.write("<tr>");
+                document.write("<td>");
+                document.write(listeLivres[i].getElementsByTagName("titre")[0].childNodes[0].nodeValue);
+                document.write("</td>");
+                document.write("<td>");
+                document.write(listeLivres[i].getElementsByTagName("auteur")[0].childNodes[0].nodeValue);
+                document.write("</td>");
+                document.write("<td>");
+                document.write(listeLivres[i].getElementsByTagName("an")[0].childNodes[0].nodeValue);
+                document.write("</td>");
+                document.write("<td>");
+                document.write("<a href='" + listeLivres[i].getElementsByTagName("site_web")[0].childNodes[0].nodeValue + "'>lien wikipedia</a>");
+                document.write("</td>");
+                document.write("</tr>");
+            }
+        } else {
+            document.write("<p>Erreur lors du chargement du fichier XML.</p>");
+        }
+    </script>
+</table>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Essai XML</title>
+</head>
+<body>
+
+
+<h1>Essai XML avec traitement asynchrone</h1>
+
+<script type="text/javascript">
+    window.onload = init;
+
+    function init() {
+        request = new XMLHttpRequest();
+        request.open("GET", "livres.xml");
+        request.send();
+        request.onreadystatechange = traitementReponse;
+    }
+
+    function traitementReponse() {
+        console.log(request.readyState + " " + request.status);
+        if (request.readyState == 4 && request.status == 200) {
+            // traitement de la réponse stockée dans request.response
+        }
+    }
+</script>
+</body>
+</html>

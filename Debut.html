@@ -1,0 +1,27 @@
+<!--Redirection vers une page pendant un certain temps avant le close-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset=“UTF-8">
+    <title>un time out</title>
+</head>
+<body>
+<h1>Un essai de timeout</h1>
+<p>Ouvrir une fenêtre avec un élément de recherche</p>
+
+<!--Clique dans la fonction openWindow-->
+<button onclick="openWindow()">Rechercher</button>
+
+<script>
+    function openWindow() {
+        let url = "https://fr.wikipedia.org/wiki/LaTeX";
+        //fenetre : url, X, Y
+        let openWindow = window.open(url, "", "widthm500, heightm500");
+        setTimeout(() => {
+            console.log("Retardée d'une seconde.");
+            openWindow.close();
+        }, 3000);
+    }
+</script>
+</body>
+</html>

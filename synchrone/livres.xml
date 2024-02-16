@@ -1,0 +1,37 @@
+<!-- Fichier xml livres.xml -->
+<!-- livres -->
+<livres>
+    <!-- livre -->
+    <livre origine="France" groupe="Roman">
+        <titre>Les Misérables</titre>
+        <auteur>Victor Hugo</auteur>
+        <an>1862</an>
+        <site_web>
+            https://fr.wikipedia.org/wiki/Les_Misérables
+        </site_web>
+    </livre>
+    <livre origine="France" groupe="Roman">
+        <titre>Le Grand Meaulnes</titre>
+        <auteur>Alain Fournier</auteur>
+        <an>1913</an>
+        <site_web>
+            https://fr.wikipedia.org/wiki/Le_Grand_Meaulnes
+        </site_web>
+    </livre>
+    <livre origine="France" groupe="Roman">
+        <titre>Eugenie Grandet</titre>
+        <auteur>Honoré de Balzac</auteur>
+        <an>1839</an>
+        <site_web>
+            https://fr.wikipedia.org/wiki/Eugénie_Grandet
+        </site_web>
+    </livre>
+    <livre origine="Grande-Bretagne" groupe="Tragédie">
+        <titre>Hamlet</titre>
+        <auteur>William Shakespeare</auteur>
+        <an>1603</an>
+        <site_web>
+            https://fr.wikipedia.org/wiki/Hamlet
+        </site_web>
+    </livre>
+</livres>
