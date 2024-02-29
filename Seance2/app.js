@@ -377,28 +377,31 @@ const server = http.createServer({reqListener});*/
  console.log("Serveur démarré sur le port :" + port);*/
 
 //////////////////////////////////////////////////// Version import du html
-const bodyParser = require('body-parser');
-const express = require('express');
-const app = express();
-const port = 5000;
-const path = require('path');
+    // import des modules
+const bodyParser = require('body-parser'); // Middleware pour analyser les corps de requêtes
+const express = require('express');        // Cadre web pour Node.js
+const app = express();                     // Création d'une application Express
+const port = 5000;                         // Port sur lequel le serveur écoutera
+const path = require('path');              // Module pour travailler avec les chemins de fichiers et de répertoires
 
-const defaut = require("./root/default");
-const form = require("./root/form");
+const defaut = require("./root/default");  // Importation du gestionnaire pour deafaut
+const form = require("./root/form");       // Importation du gestionnaire pour formulaire
 
-app.listen(port);
-app.use(bodyParser.urlencoded({extended: false}));
+    // PARTIE APP
+app.listen(port);                          // Démarrage du serveur et écoute sur le port spécifié
+app.use(bodyParser.urlencoded({extended: false})); // Middleware pour analyser les données encodées en URL dans le corps de la requête
 
 app.use(express.static(path.join(__dirname,'public')));   // Import css
 
-app.use(defaut);    //import le controleur defaut
-app.use(form);       // import controleur form
+app.use(defaut);    // Utilisation le controleur defaut
+app.use(form);       // Utilisation controleur form
 
+// Middleware pour gérer les erreurs 404 (Non trouvé)
 app.use((req, res, next) => {
     res.status(404).send("<html><head><title>erreur 404</title></head><body><h1>Not found : 404</h1></body></html>");
 })     // Erreur 404
 
-console.log("Serveur démarré sur le port :" + port);
+console.log("Serveur démarré sur le port :" + port); // Indique que le serveur a démarré sur tel port
 
 
 //server.listen(port);     //Pour le middleware il faut le mettre avant

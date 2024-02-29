@@ -14,8 +14,9 @@ const express= require('express');
 const router = express.Router();
 const path= require('path');
 
+// Lorsque l'url de l'accueil est en get
 router.get('/',(req,res,next)=>{
-    console.log("middleware Accueil");
+    console.log("middleware Accueil get");
     res.sendFile(path.join(__dirname,'../','Vue','Accueil.html'));
 });
 
