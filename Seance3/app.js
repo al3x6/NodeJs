@@ -1,3 +1,4 @@
+    // Importation module
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
@@ -7,16 +8,21 @@ const path = require('path');
 const defaut = require("./root/default");
 const form = require("./root/form");
 
+    // PARTIE APP
 app.listen(port);
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(express.static(path.join(__dirname,'public')));   // Import css
+app.use(express.static(path.join(__dirname, 'public')));   // Import css
 
-app.use(defaut);    //import le controleur defaut
-app.use(form);       // import controleur form
+app.use(defaut);    // Utilisation du controleur defaut
+app.use(form);       // Utilisation du controleur form
+/**
+app.use(form.routes);
+*/
 
-app.set('Vue engine','pug');
-app.set('Vue', path.join(__dirname,'Vue'));
+// Pour pug
+app.set('Vue engine', 'pug');
+app.set('Vue', path.join(__dirname, 'Vue'));
 
 app.use((req, res, next) => {
     //res.status(404).send("<html><head><title>erreur 404</title></head><body><h1>Not found : 404</h1></body></html>");
