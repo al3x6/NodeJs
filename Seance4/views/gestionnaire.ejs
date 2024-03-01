@@ -1,0 +1,23 @@
+<%- include('layout/debut.ejs') %>
+
+<body>
+
+<%- include('layout/navigation.ejs') %>
+
+<main>
+    <h2>Page du gestionnaire</h2>
+    <p>Bonjour vous voici sur la page du gestionnaire</p>
+
+    <% if(login.length > 0){ %>
+        <% for(let elt of login){ %>
+            <h5> Bonjour : </h5><p><%= elt.login %></p>
+    <% }
+    } else { %>
+        <p> Il n'y a pas de message</p>
+    <% } %>
+</main>
+
+<%- include('layout/fin.ejs') %>
+
+</body>
+</html>

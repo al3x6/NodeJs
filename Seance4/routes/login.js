@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 
-const parametre = [];     // Variable pour récupérer le message du formulaire
+const login = [];     // Variable pour récupérer le message du formulaire
 
 // Récupère en post via url ou lien
 router.get('/login', (req, res, next) => {
@@ -14,18 +14,29 @@ router.post('/login', (req, res, next) => {
     console.log(Object.assign({}, req.body)); // Affiche dans la console le message
     const aa = Object.assign({}, req.body);
 
-    const param1 = req.body.login;
+    //const param1 = req.body.login;
     const param2 = req.body.mdp
-    console.log("login = " + param1 + " mdp =" + param2)
+    console.log("login = " + req.body.login + " mdp =" + param2)
 
-    req.session.isLogin = true;
+    if(req.body.login=='gestion') {
 
-    parametre.push({message: req.body.parametre});
+        req.session.isLogin = true;
+        login.push({login: req.body.login});
 
-    res.setHeader('Set-Cookie', 'login' + req.body.login);    // mettre un cookie
-    res.redirect('/');
+        res.setHeader('Set-Cookie', 'login' + req.body.login);    // mettre un cookie
+        res.redirect('/gestionnaire');
+
+    }
+    else
+    {
+        req.session.isLogin = true;
+        login.push({login: req.body.login});
+
+        res.setHeader('Set-Cookie', 'login' + req.body.login);    // mettre un cookie
+        res.redirect('/utilisateur');
+    }
 });
 
 // export routes
 exports.routes = router;
-exports.parametre = parametre;
+exports.login = login;

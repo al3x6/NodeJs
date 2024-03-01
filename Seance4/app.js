@@ -10,6 +10,7 @@ const app = express();
 const defautRoutes = require('./routes/defaut');
 const formRoutes = require('./routes/form');
 const acessLogin = require('./routes/login');
+const acessConnexion = require('./routes/connexion');
 
     // PARTIE APP
 app.use(session({secret: "cle de session", resave: false,saveUninitialized:false}))
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname,'public')));
 // Utilise les routes
 app.use(formRoutes.routes);
 app.use(acessLogin.routes);
+app.use(acessConnexion);
 app.use(defautRoutes);
 
 app.use((req,res,next)=>{
