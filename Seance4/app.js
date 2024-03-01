@@ -2,6 +2,7 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const port=8000;
 const app = express();
 
@@ -11,6 +12,7 @@ const formRoutes = require('./routes/form');
 const acessLogin = require('./routes/login');
 
     // PARTIE APP
+app.use(session({secret: "cle de session", resave: false,saveUninitialized:false}))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({extended: false}));
 
@@ -20,7 +22,6 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(formRoutes.routes);
 app.use(acessLogin.routes);
 app.use(defautRoutes);
-
 
 app.use((req,res,next)=>{
     res.status(404).render(path.join(__dirname,"views","404.ejs"), {pageTitle: "404 not Found"});

@@ -13,7 +13,15 @@ router.get('/login', (req, res, next) => {
 router.post('/login', (req, res, next) => {
     console.log(Object.assign({}, req.body)); // Affiche dans la console le message
     const aa = Object.assign({}, req.body);
+
+    const param1 = req.body.login;
+    const param2 = req.body.mdp
+    console.log("login = " + param1 + " mdp =" + param2)
+
+    req.session.isLogin = true;
+
     parametre.push({message: req.body.parametre});
+
     res.setHeader('Set-Cookie', 'login' + req.body.login);    // mettre un cookie
     res.redirect('/');
 });

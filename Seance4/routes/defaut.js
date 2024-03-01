@@ -5,7 +5,7 @@ const router = express.Router();
 const accessMessage = require('./form');
 
 router.get('/', (req, res, next) => {
-    console.log("acces message : ", accessMessage.message);
+    console.log("access message : ", accessMessage.message);
 
     // récupère le message (message) du formulaire envoyé par form.js
     if (accessMessage.message) {
